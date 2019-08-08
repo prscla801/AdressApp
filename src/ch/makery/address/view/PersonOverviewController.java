@@ -43,6 +43,16 @@ public class PersonOverviewController {
      * Inicializa a classe controller. Este método é chamado automaticamente
      *  após o arquivo fxml ter sido carregado.
      */
+    
+    /**
+     * Chamado quando o usuário clica no botão delete.
+     */
+    @FXML
+    private void handleDeletePerson() {
+        int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+        personTable.getItems().remove(selectedIndex);
+    }
+    
     @FXML
     private void initialize() {
         // Inicializa a tabela de pessoas com duas colunas.
