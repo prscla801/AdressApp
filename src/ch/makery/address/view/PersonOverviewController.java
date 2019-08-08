@@ -47,10 +47,24 @@ public class PersonOverviewController {
     /**
      * Chamado quando o usuário clica no botão delete.
      */
+    /**
+     * Chamado quando o usuário clica no botão delete.
+     */
     @FXML
     private void handleDeletePerson() {
         int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-        personTable.getItems().remove(selectedIndex);
+        if (selectedIndex >= 0) {
+            personTable.getItems().remove(selectedIndex);
+        } else {
+            // Nada selecionado.
+          
+        Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Nenhuma seleção");
+                alert.setHeaderText("Nenhuma Pessoa Selecionada");
+                alert.setContentText("Por favor, selecione uma pessoa na tabela.");
+
+                alert.showAndWait();
+        }
     }
     
     @FXML
